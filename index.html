@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Risk management calculator</title>
+  
+  <!--  Bootstrap CDN  -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Risk Management Calculator</h2>
+    <form action="" method="POST">
+      <!--    Form input for user entry    -->
+      <div class="visible">
+        <div class="input-field">
+          <label for="capital" class="form-label">💰 Capita Amount(In Numbers)</label>
+          <input id="capital" class="form-control form-control-lg" type="number" placeholder="eg. 10,000" aria-label="capital" required>
+        </div>
+        
+        <div class="input-field">
+          <label for="risk" class="form-label">💣 Risk Level</label>
+          <select id="risk" class="form-select form-select-lg" aria-label="risk" required>
+            <option selected>Select your risk %</option>
+            <option value="1">1%</option>
+            <option value="2">2%</option>
+            <option value="3">3%</option>
+            <option value="4">4%</option>
+            <option value="5">5%</option>
+          </select>
+        </div>
+        
+        <div class="input-field">
+          <label for="stock-entry-price" class="form-label">💵 Stock Entry Price</label>
+          <input id="stock-entry-price" class="form-control form-control-lg" type="number" placeholder="eg. 120" aria-label="stock Entry Price" required>
+        </div>
+        
+        <div class="input-field">
+          <label for="stop-loss-price" class="form-label">✋ Stop Loss Price</label>
+          <input id="stop-loss-price" onchange="calculateRisk();" class="form-control form-control-lg" type="number" placeholder="eg. 110" aria-label="Stop Loss Price" required>
+        </div>
+      </div>
+      <!--    Form input for user entry    -->
+      
+      <!--    Form input for calculation    -->
+      <div id="hidden">
+        <div class="input-field">
+          <label for="total-capital-risk" class="form-label">📉 Total Capital Risk</label>
+          <input id="total-capital-risk" class="form-control form-control-lg" type="number"  value="0" aria-label="Total Capital Risk" readonly>
+        </div>
+        
+        <div class="input-field">
+          <label for="stop-loss-per-share" class="form-label">🗑️ Stop Loss Per Share</label>
+          <input id="stop-loss-per-share" class="form-control form-control-lg" type="number" value="0" aria-label="Stop Loss Per Share" readonly>
+        </div>
+        
+        <div class="input-field">
+          <label for="quantity" class="form-label">🛒 Stock Quantity</label>
+          <input id="quantity" class="form-control form-control-lg" type="number" value="0" aria-label="Stock Quantity" readonly>
+        </div>
+        
+        <div class="input-field">
+          <label for="total-investment-amt" class="form-label">💰 Total Investment Amount</label>
+          <input id="total-investment-amt" class="form-control form-control-lg" type="number" value="0" aria-label="Total Investment Amount" readonly>
+        </div>
+        
+        <div class="input-field">
+          <label for="target-one" class="form-label">Target 1:01</label>
+          <input id="target-one" class="form-control form-control-lg" type="number" value="0" aria-label="First Target" readonly>
+        </div>
+        
+        <div class="input-field">
+          <label for="target-two" class="form-label">Target 1:02</label>
+          <input id="target-two" class="form-control form-control-lg" type="number" value="0" aria-label="Second Target" readonly>
+        </div>
+        
+        <div class="input-field">
+          <label for="target-three" class="form-label">Target 1:03</label>
+          <input id="target-three" class="form-control form-control-lg" type="number" value="0" aria-label="Third Target" readonly>
+        </div>
+      </div>
+      <!--    Form input for calculation    -->
+          
+      <div class="row button-area">
+        <div class="col">
+          <button class="btn w-100 btn-primary" onclick="showResult()" type="button">Show Me Result</button>
+        </div>
+        <div class="col">
+          <button class="btn w-100 btn-warning" onclick="resetResult()" type="reset">New Calculation</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- Javascript external file -->
+  <script src="script.js"></script>
+</body>
+</html>
