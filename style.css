@@ -60,10 +60,10 @@ form
 }
 
 
-/* @media screen and (max-width: 400px;)
+@media screen and (max-width: 400px;)
 {
   .container
   {
-    margin: 0;
+    padding: 10px;
   }
-} */
+} 
